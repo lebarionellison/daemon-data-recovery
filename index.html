@@ -1,211 +1,951 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#050b16">
-<meta name="description" content="Daemon Data Recovery & Tech Services provides data recovery, computer repair, IT consulting, database management, web development, custom software, application development, business analytics, network architecture, cloud optimization and AI automation in Augusta and across the Southeast.">
-<meta name="robots" content="index, follow">
-<title>Daemon Data Recovery & Tech Services | Data Recovery, IT & Software Solutions</title>
-<style>
-:root{--bg:#050b16;--panel:#0b1728;--cyan:#57e7ff;--blue:#238bff;--text:#eff8ff;--muted:#a9bdd2;--line:#1b3854}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:90px}
-body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,"Segoe UI",Arial,sans-serif;line-height:1.65}
-a{color:inherit}
-.wrap{width:min(1140px,92%);margin:auto}
-header{position:sticky;top:0;z-index:10;background:#050b16ed;backdrop-filter:blur(14px);border-bottom:1px solid #21405b}
-.nav{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:16px 0}
-.brand{font-weight:900;text-decoration:none;letter-spacing:1px}
-.brand small{display:block;color:var(--cyan);font-size:11px;letter-spacing:2px}
-nav{display:flex;gap:20px;flex-wrap:wrap}
-nav a{text-decoration:none;color:#c2d4e7;font-size:14px}
-nav a:hover,nav a:focus-visible{color:var(--cyan)}
-.hero{position:relative;isolation:isolate;overflow:hidden;min-height:600px;display:flex;align-items:center;padding:90px 0;background:radial-gradient(ellipse at 75% 35%,#0876ad55,transparent 38%),radial-gradient(ellipse at 90% 80%,#1247b655,transparent 35%),linear-gradient(115deg,#050b16 15%,#091a30 58%,#061226)}
-.hero:before{content:"";position:absolute;inset:0;z-index:-1;opacity:.45;background-image:linear-gradient(#1f8cbd22 1px,transparent 1px),linear-gradient(90deg,#1f8cbd22 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(90deg,transparent,#000 55%,#000)}
-.hero:after{content:"";position:absolute;z-index:-1;width:440px;height:440px;right:2%;top:8%;border:1px solid #51dfff4a;border-radius:50%;box-shadow:0 0 0 35px #238bff0b,0 0 0 75px #238bff0a,0 0 90px #168cce22}
-.hero-inner{max-width:900px}
-.eyebrow{color:var(--cyan);font-weight:800;text-transform:uppercase;letter-spacing:3px;font-size:12px}
-h1{font-size:clamp(43px,7vw,78px);line-height:1.02;letter-spacing:-2.8px;margin:22px 0}
-h1 span{background:linear-gradient(95deg,#fff,#57e7ff 55%,#4995ff);color:transparent;background-clip:text}
-.lead{font-size:clamp(17px,2vw,20px);color:#c2d2e3;max-width:760px}
-.actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
-.btn{display:inline-block;text-decoration:none;padding:13px 20px;border-radius:6px;font-weight:800;border:1px solid var(--cyan);transition:.2s}
-.primary{background:linear-gradient(110deg,#57e7ff,#238bff);color:#03101c;border:0}
-.secondary{background:#09182caa;color:white}
-.btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px #168dca33}
-.hero-tags{margin-top:35px;display:flex;gap:10px;flex-wrap:wrap}
-.tag{font-size:12px;color:#d0e8fa;border:1px solid #285171;background:#071528b8;padding:6px 11px;border-radius:30px}
-section{padding:75px 0}
-.section-head{max-width:800px;margin-bottom:32px}
-h2{font-size:clamp(30px,4vw,43px);line-height:1.15;margin:12px 0}
-.muted{color:var(--muted)}
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-.card{position:relative;overflow:hidden;background:linear-gradient(145deg,#0d1c30,#081323);border:1px solid var(--line);border-radius:12px;padding:25px;transition:.25s}
-.card:before{content:"";position:absolute;top:0;left:0;width:60px;height:2px;background:linear-gradient(90deg,var(--cyan),transparent)}
-.card:hover{transform:translateY(-4px);border-color:#3a9dca;box-shadow:0 12px 35px #0004}
-.card h3{margin:8px 0;line-height:1.35}
-.card p{color:var(--muted);margin-bottom:0}
-.symbol{color:var(--cyan);font-size:29px;line-height:1.3}
-.band{position:relative;background:radial-gradient(ellipse at 100% 10%,#12487b45,transparent 45%),#071322;border-block:1px solid var(--line)}
-.band:after{content:"";display:block;position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);opacity:.4}
-.pills{display:flex;flex-wrap:wrap;gap:9px;margin-top:25px}
-.pill{border:1px solid #24506b;background:#08182a;color:var(--cyan);border-radius:30px;padding:7px 12px;font-size:13px}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-.contact-box{background:linear-gradient(145deg,#0d1c30,#081323);border:1px solid var(--line);border-radius:12px;padding:28px}
-.contact-box a:not(.btn){color:var(--cyan);overflow-wrap:anywhere}
-footer{border-top:1px solid var(--line);padding:25px 0;color:#91a7bc;font-size:13px}
-footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
-:focus-visible{outline:2px solid var(--cyan);outline-offset:4px}
-@media(max-width:760px){.nav{align-items:flex-start;flex-direction:column}nav{gap:13px}.hero{min-height:540px;padding:70px 0}.hero:after{right:-240px;top:20%}h1{letter-spacing:-1.5px}.grid{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr}section{padding:52px 0}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Daemon Data, IT Consulting &amp; Tech Services</title>
+
+  <meta name="description" content="Daemon Data, IT Consulting & Tech Services provides data recovery guidance, IT consulting, technical troubleshooting, infrastructure support, and technology solutions.">
+
+  <meta name="theme-color" content="#080d18">
+
+  <style>
+    :root {
+      --bg: #080d18;
+      --panel: #101a2b;
+      --panel-light: #142239;
+      --text: #f4f7fb;
+      --muted: #a7b5c9;
+      --cyan: #42e5f5;
+      --blue: #6288ff;
+      --border: rgba(255,255,255,.12);
+      --radius: 18px;
+      --max: 1160px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .container {
+      width: min(var(--max), 92%);
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(8,13,24,.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.3;
+      font-size: 17px;
+      font-weight: 850;
+      letter-spacing: .4px;
+    }
+
+    .brand span {
+      color: var(--cyan);
+    }
+
+    .brand small {
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 650;
+      letter-spacing: 1.4px;
+      margin-top: 5px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 23px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--cyan);
+    }
+
+    .nav-cta {
+      background: var(--cyan);
+      color: #061018 !important;
+      padding: 11px 17px;
+      border-radius: 9px;
+      font-weight: 800;
+    }
+
+    .hero {
+      padding: 100px 0 90px;
+      background:
+        radial-gradient(ellipse at 80% 15%, rgba(67,105,255,.19), transparent 38%),
+        radial-gradient(ellipse at 15% 45%, rgba(36,218,233,.10), transparent 38%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--cyan);
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 25px;
+      height: 2px;
+      background: var(--cyan);
+    }
+
+    h1 {
+      font-size: clamp(38px, 5.5vw, 67px);
+      line-height: 1.08;
+      letter-spacing: -2.5px;
+      margin-bottom: 24px;
+    }
+
+    h1 span {
+      color: var(--cyan);
+    }
+
+    .hero-copy {
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 660px;
+      margin-bottom: 30px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 13px 20px;
+      border-radius: 10px;
+      font-weight: 800;
+      font-size: 14px;
+      transition: transform .2s, opacity .2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      opacity: .9;
+    }
+
+    .btn-primary {
+      background: var(--cyan);
+      color: #061018;
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.04);
+    }
+
+    .hero-note {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .hero-card {
+      padding: 30px;
+      background: linear-gradient(145deg, #14233a, #0c1423);
+      border: 1px solid rgba(66,229,245,.25);
+      border-radius: 24px;
+      box-shadow: 0 25px 90px rgba(0,0,0,.25);
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--cyan);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+    }
+
+    .status::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      background: var(--cyan);
+      border-radius: 50%;
+      box-shadow: 0 0 12px var(--cyan);
+    }
+
+    .hero-card h2 {
+      font-size: 27px;
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .hero-card p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 23px;
+    }
+
+    .capability {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 15px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .capability .icon {
+      color: var(--cyan);
+      font-size: 20px;
+    }
+
+    .capability strong {
+      display: block;
+      font-size: 14px;
+    }
+
+    .capability small {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    section {
+      padding: 82px 0;
+    }
+
+    .section-head {
+      max-width: 720px;
+      margin-bottom: 38px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(29px, 4vw, 43px);
+      line-height: 1.2;
+      letter-spacing: -1px;
+      margin-bottom: 15px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      padding: 27px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: border-color .2s, transform .2s;
+    }
+
+    .card:hover {
+      border-color: rgba(66,229,245,.5);
+      transform: translateY(-3px);
+    }
+
+    .card-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 47px;
+      height: 47px;
+      border-radius: 13px;
+      color: var(--cyan);
+      background: rgba(66,229,245,.1);
+      font-size: 22px;
+      margin-bottom: 21px;
+    }
+
+    .card h3 {
+      font-size: 20px;
+      margin-bottom: 11px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 17px;
+    }
+
+    .card ul {
+      list-style: none;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .card li {
+      margin-top: 8px;
+    }
+
+    .card li::before {
+      content: "✓";
+      color: var(--cyan);
+      margin-right: 9px;
+      font-weight: 900;
+    }
+
+    .highlight {
+      background: linear-gradient(110deg, #101d30, #101629);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .split h2 {
+      font-size: clamp(30px, 4vw, 43px);
+      line-height: 1.2;
+      margin-bottom: 19px;
+    }
+
+    .split p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .feature {
+      padding: 18px 20px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.025);
+      border-radius: 12px;
+    }
+
+    .feature strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .feature span {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .steps {
+      counter-reset: step;
+    }
+
+    .step {
+      position: relative;
+      padding: 22px 22px 22px 66px;
+      border-bottom: 1px solid var(--border);
+      counter-increment: step;
+    }
+
+    .step::before {
+      content: "0" counter(step);
+      position: absolute;
+      left: 8px;
+      top: 23px;
+      color: var(--cyan);
+      font-weight: 900;
+      font-size: 17px;
+    }
+
+    .step h3 {
+      font-size: 17px;
+      margin-bottom: 5px;
+    }
+
+    .step p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .contact-panel {
+      padding: 48px;
+      background:
+        radial-gradient(ellipse at top right, rgba(66,229,245,.12), transparent 50%),
+        var(--panel);
+      border: 1px solid rgba(66,229,245,.25);
+      border-radius: 24px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .contact-panel h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .contact-panel p {
+      color: var(--muted);
+      max-width: 650px;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .notice {
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    footer {
+      padding: 35px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    footer p, footer a {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    footer a:hover {
+      color: var(--cyan);
+    }
+
+    .footer-brand {
+      color: var(--text);
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid, .split {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 72px 0;
+      }
+
+      .hero-grid {
+        gap: 35px;
+      }
+
+      .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .contact-panel {
+        grid-template-columns: 1fr;
+        padding: 35px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .nav {
+        padding: 15px 0;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        gap: 10px 14px;
+        font-size: 12px;
+      }
+
+      .nav-links .optional {
+        display: none;
+      }
+
+      .brand {
+        font-size: 14px;
+      }
+
+      .brand small {
+        font-size: 8px;
+        letter-spacing: .7px;
+      }
+
+      h1 {
+        letter-spacing: -1.5px;
+      }
+
+      .hero-copy {
+        font-size: 16px;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 23px;
+      }
+
+      .contact-panel {
+        padding: 25px;
+      }
+
+      .actions .btn, .contact-actions .btn {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<header>
-<div class="wrap nav">
-<a class="brand" href="#home">DAEMON<small>DATA RECOVERY & TECH SERVICES</small></a>
-<nav aria-label="Main navigation">
-<a href="#services">Services</a>
-<a href="#business">Business Solutions</a>
-<a href="#about">About</a>
-<a href="#contact">Contact</a>
-</nav>
-</div>
-</header>
 
-<main>
-<section class="hero" id="home">
-<div class="wrap hero-inner">
-<div class="eyebrow">Technology · Recovery · Intelligent Solutions</div>
-<h1>Your Data.<br>Your Systems.<br><span>Our Expertise.</span></h1>
-<p class="lead">From data recovery and precision electronics repair to database management, software development, IT consulting and AI automation, we help individuals and businesses solve technology challenges with confidence.</p>
-<p class="muted">Serving Waynesboro, Augusta and businesses across the Southeast.</p>
-<div class="actions">
-<a class="btn primary" href="mailto:barry.ellison@comcast.net?subject=Daemon%20Tech%20Services%20Consultation">Request a Consultation ↗</a>
-<a class="btn secondary" href="#services">Explore Services ↓</a>
-</div>
-<div class="hero-tags">
-<span class="tag">DATA RECOVERY</span>
-<span class="tag">COMPUTER & BOARD REPAIR</span>
-<span class="tag">IT CONSULTING</span>
-<span class="tag">SOFTWARE DEVELOPMENT</span>
-<span class="tag">AI AUTOMATION</span>
-</div>
-</div>
-</section>
+  <header class="topbar">
+    <div class="container nav">
 
-<section id="services">
-<div class="wrap">
-<div class="section-head">
-<div class="eyebrow">01 / Technical Services</div>
-<h2>When technology matters, get a clear path forward.</h2>
-<p class="muted">Practical support for devices, data and the systems you depend on.</p>
-</div>
-<div class="grid">
-<article class="card"><div class="symbol">⌕</div><h3>Data Recovery</h3><p>Assessment and recovery services for HDDs, SSDs, external drives and RAID storage. Results depend on the device condition and type of failure.</p></article>
-<article class="card"><div class="symbol">⌘</div><h3>Computer & Device Repair</h3><p>Computer and laptop troubleshooting, hardware diagnostics, upgrades, system setup and performance support.</p></article>
-<article class="card"><div class="symbol">◈</div><h3>Board-Level Repair</h3><p>Precision electronics diagnostics and micro-soldering assessment for suitable circuit boards and electronic devices.</p></article>
-<article class="card"><div class="symbol">⌁</div><h3>Network Architecture</h3><p>Network design, connectivity troubleshooting, infrastructure planning and reliability-focused configuration for homes and businesses.</p></article>
-<article class="card"><div class="symbol">▦</div><h3>Gaming & Technology Setup</h3><p>Gaming PC support, component upgrades, peripheral setup, system configuration and troubleshooting.</p></article>
-<article class="card"><div class="symbol">↗</div><h3>Disaster Recovery Planning</h3><p>Backup strategy reviews, recovery planning, resilience assessments and practical business continuity recommendations.</p></article>
-</div>
-</div>
-</section>
+      <a class="brand" href="#home" aria-label="Daemon Data home">
+        DAEMON <span>DATA</span>
+        <small>IT CONSULTING &amp; TECH SERVICES</small>
+      </a>
 
-<section id="business" class="band">
-<div class="wrap">
-<div class="section-head">
-<div class="eyebrow">02 / Business, Software & Infrastructure</div>
-<h2>Build a smarter, more resilient operation.</h2>
-<p class="muted">Technology strategy, software solutions, data insights and intelligent automation to help organizations improve visibility, efficiency and customer experience.</p>
-</div>
-<div class="grid">
-<article class="card"><div class="symbol">⌁</div><h3>Cloud & FinOps Optimization</h3><p>Review cloud resource usage, identify potential waste, improve cost visibility and develop recommendations for more efficient infrastructure spending.</p></article>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#services">Services</a>
+        <a href="#approach">Our Approach</a>
+        <a href="#process" class="optional">How It Works</a>
+        <a href="#contact" class="nav-cta">Contact Us</a>
+      </nav>
 
-<article class="card"><div class="symbol">⌘</div><h3>IT Consulting & Technology Strategy</h3><p>Technology assessments, infrastructure planning, network design, systems troubleshooting, cloud strategy and modernization recommendations aligned with your goals and budget.</p></article>
+    </div>
+  </header>
 
-<article class="card"><div class="symbol">▤</div><h3>Business Analytics & Insights</h3><p>Turn business data into actionable insights through KPI reporting, operational performance analysis, dashboard planning, trend identification and data-driven recommendations.</p></article>
+  <main>
 
-<article class="card"><div class="symbol">▥</div><h3>Database Management</h3><p>Database design and organization, query optimization, performance troubleshooting, data integrity reviews, backup planning and maintenance recommendations for business data systems.</p></article>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
 
-<article class="card"><div class="symbol">⌘</div><h3>Web Development</h3><p>Responsive business websites, landing pages and web experiences for mobile and desktop, with website enhancements, accessibility improvements and performance optimization.</p></article>
+        <div>
+          <div class="eyebrow">Technology Services &amp; IT Solutions</div>
 
-<article class="card"><div class="symbol">⚙</div><h3>Custom Software Development</h3><p>Purpose-built software to support your workflows, including internal tools, automation utilities, integrations, reporting systems and business process applications.</p></article>
+          <h1>
+            Solve Technology Problems.
+            <span>Move Forward.</span>
+          </h1>
 
-<article class="card"><div class="symbol">▦</div><h3>Application Development</h3><p>Planning and development of web applications, business tools, API integrations and application features, with attention to requirements, testing and deployment planning.</p></article>
+          <p class="hero-copy">
+            Daemon Data, IT Consulting &amp; Tech Services helps individuals
+            and businesses navigate data recovery challenges, technical
+            problems, IT decisions, and infrastructure needs.
+          </p>
 
-<article class="card"><div class="symbol">✳</div><h3>AI Agents & Chatbots</h3><p>Plan conversational assistants, automated lead capture and customer-support workflows to help handle routine inquiries and improve customer engagement.</p></article>
+          <div class="actions">
+            <a class="btn btn-primary" href="#contact">
+              Discuss Your Needs →
+            </a>
 
-<article class="card"><div class="symbol">◇</div><h3>Network & Infrastructure Consulting</h3><p>Evaluate connectivity, infrastructure design, system reliability and network requirements to help create a more stable and maintainable technology environment.</p></article>
+            <a class="btn btn-secondary" href="#services">
+              Explore Services
+            </a>
+          </div>
 
-<article class="card"><div class="symbol">⬡</div><h3>Business Continuity & Resilience</h3><p>Identify technology risks, review backup and recovery approaches, and plan practical steps to reduce disruption and improve operational readiness.</p></article>
-</div>
+          <p class="hero-note">
+            Practical technology guidance. Clear next steps. Solutions
+            aligned with your needs.
+          </p>
+        </div>
 
-<div class="pills" aria-label="Business capabilities">
-<span class="pill">Technology Strategy</span>
-<span class="pill">Database Solutions</span>
-<span class="pill">Web & Software Development</span>
-<span class="pill">Operational Efficiency</span>
-<span class="pill">Business Analytics</span>
-<span class="pill">Cloud Cost Optimization</span>
-<span class="pill">AI Automation</span>
-<span class="pill">Business Continuity</span>
-</div>
-</div>
-</section>
+        <aside class="hero-card">
+          <div class="status">Technology Services</div>
 
-<section id="about">
-<div class="wrap">
-<div class="section-head">
-<div class="eyebrow">03 / Why Daemon</div>
-<h2>Reliable Technology.<br><span style="color:var(--cyan)">Intelligent Solutions.</span></h2>
-<p class="lead">Technology issues can interrupt business, disrupt daily life and put important information at risk. We start by understanding the problem, explaining available options and recommending a practical next step.</p>
-</div>
-<div class="grid">
-<article class="card"><h3>Clear Communication</h3><p>Understand the issue, available options and recommended next steps before proceeding.</p></article>
-<article class="card"><h3>Solutions That Fit</h3><p>Recommendations shaped around your equipment, business requirements, priorities and budget.</p></article>
-<article class="card"><h3>Security-Conscious</h3><p>Careful handling practices with an emphasis on protecting data, access and operational continuity.</p></article>
-</div>
-<p class="muted" style="margin-top:24px;font-size:13px">Data recovery results cannot be guaranteed. Assessment, turnaround time and pricing depend on the device, damage and scope of work. For physically damaged devices with important data, avoid repeated power-on attempts and seek an assessment.</p>
-</div>
-</section>
+          <h2>Your Technology. Your Challenges. A Clearer Path Forward.</h2>
 
-<section id="contact" class="band">
-<div class="wrap">
-<div class="section-head">
-<div class="eyebrow">04 / Let's Connect</div>
-<h2>Tell us what you need help with.</h2>
-<p class="muted">Start a conversation about data recovery, device repair, IT consulting, database management, website or software development, analytics, infrastructure or an automation project.</p>
-</div>
-<div class="contact-grid">
-<div class="contact-box">
-<h3>Request Service or Consulting</h3>
-<p class="muted">Email a short description of your issue, business goal or project. Include the type of device or service involved when relevant. Please do not send passwords or sensitive personal information.</p>
-<p><strong>Email</strong><br><a href="mailto:barry.ellison@comcast.net">barry.ellison@comcast.net</a></p>
-<a class="btn primary" href="mailto:barry.ellison@comcast.net?subject=Daemon%20Service%20or%20Consulting%20Request">Email Us About Your Project ↗</a>
-</div>
-<div class="contact-box">
-<h3>Service Area</h3>
-<p class="muted">Waynesboro · Augusta · Southeast</p>
-<p>Appointments, local drop-off arrangements and regional business consultations can be discussed by email.</p>
-<p><strong>Business</strong><br>Daemon Data Recovery & Tech Services</p>
-<p><strong>Our approach</strong><br>Reliable Technology. Intelligent Solutions.</p>
-</div>
-</div>
-</div>
-</section>
-</main>
+          <p>
+            From data accessibility concerns to IT planning and technical
+            troubleshooting, start by identifying the problem and the
+            right next step.
+          </p>
 
-<footer>
-<div class="wrap">
-<span>© <span id="year">2026</span> Daemon Data Recovery & Tech Services</span>
-<span>Data Recovery · IT Consulting · Software · Analytics · Infrastructure · AI</span>
-</div>
-</footer>
-<script>
-document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+          <div class="capability">
+            <span class="icon">⌁</span>
+            <div>
+              <strong>Data Recovery Guidance</strong>
+              <small>Explore options for lost or inaccessible data.</small>
+            </div>
+          </div>
+
+          <div class="capability">
+            <span class="icon">⌘</span>
+            <div>
+              <strong>IT Consulting</strong>
+              <small>Technical planning, analysis, and problem-solving.</small>
+            </div>
+          </div>
+
+          <div class="capability">
+            <span class="icon">⌬</span>
+            <div>
+              <strong>Technology Services</strong>
+              <small>Support for systems, platforms, and infrastructure.</small>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+
+        <div class="section-head">
+          <div class="eyebrow">What We Do</div>
+
+          <h2>Technology Services Built Around Your Needs</h2>
+
+          <p>
+            Get help evaluating technical issues, exploring solutions,
+            and making informed decisions about your technology.
+          </p>
+        </div>
+
+        <div class="grid">
+
+          <article class="card">
+            <div class="card-icon">▤</div>
+
+            <h3>Data Recovery</h3>
+
+            <p>
+              Explore options when important files become inaccessible,
+              disappear, or appear to be lost.
+            </p>
+
+            <ul>
+              <li>File-access troubleshooting</li>
+              <li>Storage and recovery assessment</li>
+              <li>Recovery options and next steps</li>
+              <li>Data-loss prevention guidance</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">⌘</div>
+
+            <h3>IT Consulting</h3>
+
+            <p>
+              Make better-informed technology decisions with practical
+              analysis and technical guidance.
+            </p>
+
+            <ul>
+              <li>Technology assessments</li>
+              <li>Technical troubleshooting</li>
+              <li>Systems and platform planning</li>
+              <li>Technology recommendations</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">⚙</div>
+
+            <h3>Tech Services &amp; Support</h3>
+
+            <p>
+              Identify technology issues and evaluate appropriate
+              support and resolution options.
+            </p>
+
+            <ul>
+              <li>Technical problem assessment</li>
+              <li>Software and system guidance</li>
+              <li>Configuration troubleshooting</li>
+              <li>Technology support planning</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">☁</div>
+
+            <h3>Cloud &amp; Infrastructure</h3>
+
+            <p>
+              Explore infrastructure strategies for dependable,
+              maintainable, and scalable technology environments.
+            </p>
+
+            <ul>
+              <li>Cloud architecture guidance</li>
+              <li>Infrastructure planning</li>
+              <li>Automation and platform strategy</li>
+              <li>Reliability and operations</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">◇</div>
+
+            <h3>Software &amp; Technology Solutions</h3>
+
+            <p>
+              Evaluate software, automation, and technical approaches
+              to address business or operational needs.
+            </p>
+
+            <ul>
+              <li>Solution evaluation</li>
+              <li>Workflow and automation guidance</li>
+              <li>Application and platform planning</li>
+              <li>Technical implementation planning</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">◈</div>
+
+            <h3>AI &amp; Modern Technology</h3>
+
+            <p>
+              Explore emerging technology and infrastructure options
+              that may support your goals.
+            </p>
+
+            <ul>
+              <li>AI infrastructure consulting</li>
+              <li>Technology readiness discussions</li>
+              <li>Platform and deployment planning</li>
+              <li>Emerging technology evaluation</li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="highlight" id="approach">
+      <div class="container split">
+
+        <div>
+          <div class="eyebrow">Our Approach</div>
+
+          <h2>Understand the Problem Before Choosing the Solution.</h2>
+
+          <p>
+            Technology issues can have several possible causes. A clear
+            assessment helps determine what to investigate, which options
+            are appropriate, and what the next step should be.
+          </p>
+
+          <p>
+            Daemon Data, IT Consulting &amp; Tech Services emphasizes
+            practical guidance, transparent communication, and solutions
+            appropriate to the situation.
+          </p>
+
+          <a class="btn btn-primary" href="#contact">
+            Start a Conversation →
+          </a>
+        </div>
+
+        <div class="feature-list">
+
+          <div class="feature">
+            <strong>01. Understand</strong>
+            <span>Identify your issue, objectives, and constraints.</span>
+          </div>
+
+          <div class="feature">
+            <strong>02. Evaluate</strong>
+            <span>Review possible approaches and relevant trade-offs.</span>
+          </div>
+
+          <div class="feature">
+            <strong>03. Recommend</strong>
+            <span>Determine practical next steps based on your needs.</span>
+          </div>
+
+          <div class="feature">
+            <strong>04. Move Forward</strong>
+            <span>Establish a path toward resolution or implementation.</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="container split">
+
+        <div>
+          <div class="eyebrow">Getting Started</div>
+
+          <h2>A Straightforward Way to Begin</h2>
+
+          <p>
+            Whether you have a data-access problem, a technical question,
+            or an infrastructure challenge, begin with a clear description
+            of what you need.
+          </p>
+
+          <p>
+            We'll use that information to determine whether the requested
+            service is within scope and what the appropriate next step may be.
+          </p>
+        </div>
+
+        <div class="steps">
+
+          <div class="step">
+            <h3>Describe Your Challenge</h3>
+            <p>Explain the issue, desired outcome, and relevant technology.</p>
+          </div>
+
+          <div class="step">
+            <h3>Review the Situation</h3>
+            <p>Identify available information and possible approaches.</p>
+          </div>
+
+          <div class="step">
+            <h3>Discuss Next Steps</h3>
+            <p>Determine potential services, scope, and expectations.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+
+        <div class="contact-panel">
+
+          <div>
+            <div class="eyebrow">Let's Talk Technology</div>
+
+            <h2>Have a Technology Challenge?</h2>
+
+            <p>
+              Tell us what you're trying to resolve, improve, or understand.
+              Start a conversation about data recovery, IT consulting,
+              technical services, or infrastructure.
+            </p>
+          </div>
+
+          <div class="contact-actions">
+            <a class="btn btn-primary"
+               href="mailto:barry.ellison@comcast.net?subject=Daemon%20Data%20-%20Service%20Inquiry">
+              Email Us →
+            </a>
+          </div>
+
+        </div>
+
+        <p class="notice">
+          Data recovery outcomes depend on the device, the type of data
+          loss, and the condition of the storage media. Recovery is not
+          guaranteed. Services and availability are subject to assessment
+          and confirmation.
+        </p>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+
+      <div>
+        <div class="footer-brand">
+          Daemon Data, IT Consulting &amp; Tech Services
+        </div>
+
+        <p>Data Recovery • IT Consulting • Tech Services</p>
+      </div>
+
+      <p>
+        © <span id="year"></span> Daemon Data. All rights reserved.
+      </p>
+
+      <a href="#home">Back to top ↑</a>
+
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
 </body>
 </html>
