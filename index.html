@@ -1,986 +1,165 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Daemon IT Consulting &amp; Tech Services</title>
-
-  <meta name="description" content="Daemon IT Consulting & Tech Services provides data recovery guidance, IT consulting, cloud and infrastructure services, custom software and application development, software debugging, business analytics, and AI solutions.">
-
-  <meta name="theme-color" content="#080d18">
-
-  <style>
-    :root {
-      --bg: #080d18;
-      --panel: #101a2b;
-      --panel-light: #142239;
-      --text: #f4f7fb;
-      --muted: #a7b5c9;
-      --cyan: #42e5f5;
-      --blue: #6288ff;
-      --border: rgba(255,255,255,.12);
-      --radius: 18px;
-      --max: 1160px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 90px;
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont,
-        "Segoe UI", sans-serif;
-      line-height: 1.7;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button, a {
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .container {
-      width: min(var(--max), 92%);
-      margin: 0 auto;
-    }
-
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(8,13,24,.94);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav {
-      min-height: 78px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .brand {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.3;
-      font-size: 17px;
-      font-weight: 850;
-      letter-spacing: .4px;
-    }
-
-    .brand span {
-      color: var(--cyan);
-    }
-
-    .brand small {
-      color: var(--muted);
-      font-size: 10px;
-      font-weight: 650;
-      letter-spacing: 1.4px;
-      margin-top: 5px;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 23px;
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    .nav-links a:hover {
-      color: var(--cyan);
-    }
-
-    .nav-cta {
-      background: var(--cyan);
-      color: #061018 !important;
-      padding: 11px 17px;
-      border-radius: 9px;
-      font-weight: 800;
-    }
-
-    .hero {
-      padding: 100px 0 90px;
-      background:
-        radial-gradient(ellipse at 80% 15%, rgba(67,105,255,.19), transparent 38%),
-        radial-gradient(ellipse at 15% 45%, rgba(36,218,233,.10), transparent 38%);
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 55px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      color: var(--cyan);
-      font-size: 12px;
-      font-weight: 850;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-    }
-
-    .eyebrow::before {
-      content: "";
-      width: 25px;
-      height: 2px;
-      background: var(--cyan);
-    }
-
-    h1 {
-      font-size: clamp(38px, 5.5vw, 67px);
-      line-height: 1.08;
-      letter-spacing: -2.5px;
-      margin-bottom: 24px;
-    }
-
-    h1 span {
-      color: var(--cyan);
-    }
-
-    .hero-copy {
-      color: var(--muted);
-      font-size: 18px;
-      max-width: 660px;
-      margin-bottom: 30px;
-    }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 13px;
-      margin-bottom: 30px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 13px 20px;
-      border-radius: 10px;
-      font-weight: 800;
-      font-size: 14px;
-      transition: transform .2s, opacity .2s;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      opacity: .9;
-    }
-
-    .btn-primary {
-      background: var(--cyan);
-      color: #061018;
-    }
-
-    .btn-secondary {
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,.04);
-    }
-
-    .hero-note {
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    .hero-card {
-      padding: 30px;
-      background: linear-gradient(145deg, #14233a, #0c1423);
-      border: 1px solid rgba(66,229,245,.25);
-      border-radius: 24px;
-      box-shadow: 0 25px 90px rgba(0,0,0,.25);
-    }
-
-    .status {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      color: var(--cyan);
-      font-size: 11px;
-      letter-spacing: 1.5px;
-      font-weight: 800;
-      text-transform: uppercase;
-      margin-bottom: 25px;
-    }
-
-    .status::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      background: var(--cyan);
-      border-radius: 50%;
-      box-shadow: 0 0 12px var(--cyan);
-    }
-
-    .hero-card h2 {
-      font-size: 27px;
-      line-height: 1.25;
-      margin-bottom: 12px;
-    }
-
-    .hero-card p {
-      color: var(--muted);
-      font-size: 14px;
-      margin-bottom: 23px;
-    }
-
-    .capability {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-      padding: 15px 0;
-      border-top: 1px solid var(--border);
-    }
-
-    .capability .icon {
-      color: var(--cyan);
-      font-size: 20px;
-    }
-
-    .capability strong {
-      display: block;
-      font-size: 14px;
-    }
-
-    .capability small {
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    section {
-      padding: 82px 0;
-    }
-
-    .section-head {
-      max-width: 720px;
-      margin-bottom: 38px;
-    }
-
-    .section-head h2 {
-      font-size: clamp(29px, 4vw, 43px);
-      line-height: 1.2;
-      letter-spacing: -1px;
-      margin-bottom: 15px;
-    }
-
-    .section-head p {
-      color: var(--muted);
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      padding: 27px;
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      transition: border-color .2s, transform .2s;
-    }
-
-    .card:hover {
-      border-color: rgba(66,229,245,.5);
-      transform: translateY(-3px);
-    }
-
-    .card-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 47px;
-      height: 47px;
-      border-radius: 13px;
-      color: var(--cyan);
-      background: rgba(66,229,245,.1);
-      font-size: 22px;
-      margin-bottom: 21px;
-    }
-
-    .card h3 {
-      font-size: 20px;
-      margin-bottom: 11px;
-    }
-
-    .card p {
-      color: var(--muted);
-      font-size: 14px;
-      margin-bottom: 17px;
-    }
-
-    .card ul {
-      list-style: none;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .card li {
-      margin-top: 8px;
-    }
-
-    .card li::before {
-      content: "✓";
-      color: var(--cyan);
-      margin-right: 9px;
-      font-weight: 900;
-    }
-
-    .highlight {
-      background: linear-gradient(110deg, #101d30, #101629);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .split {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 55px;
-      align-items: center;
-    }
-
-    .split h2 {
-      font-size: clamp(30px, 4vw, 43px);
-      line-height: 1.2;
-      margin-bottom: 19px;
-    }
-
-    .split p {
-      color: var(--muted);
-      margin-bottom: 18px;
-    }
-
-    .feature-list {
-      display: grid;
-      gap: 14px;
-    }
-
-    .feature {
-      padding: 18px 20px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,.025);
-      border-radius: 12px;
-    }
-
-    .feature strong {
-      display: block;
-      margin-bottom: 4px;
-    }
-
-    .feature span {
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    .steps {
-      counter-reset: step;
-    }
-
-    .step {
-      position: relative;
-      padding: 22px 22px 22px 66px;
-      border-bottom: 1px solid var(--border);
-      counter-increment: step;
-    }
-
-    .step::before {
-      content: "0" counter(step);
-      position: absolute;
-      left: 8px;
-      top: 23px;
-      color: var(--cyan);
-      font-weight: 900;
-      font-size: 17px;
-    }
-
-    .step h3 {
-      font-size: 17px;
-      margin-bottom: 5px;
-    }
-
-    .step p {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .contact-panel {
-      padding: 48px;
-      background:
-        radial-gradient(ellipse at top right, rgba(66,229,245,.12), transparent 50%),
-        var(--panel);
-      border: 1px solid rgba(66,229,245,.25);
-      border-radius: 24px;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 30px;
-      align-items: center;
-    }
-
-    .contact-panel h2 {
-      font-size: clamp(28px, 4vw, 40px);
-      line-height: 1.2;
-      margin-bottom: 12px;
-    }
-
-    .contact-panel p {
-      color: var(--muted);
-      max-width: 650px;
-    }
-
-    .contact-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .notice {
-      margin-top: 24px;
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    footer {
-      padding: 35px 0;
-      border-top: 1px solid var(--border);
-    }
-
-    .footer-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    footer p, footer a {
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    footer a:hover {
-      color: var(--cyan);
-    }
-
-    .footer-brand {
-      color: var(--text);
-      font-weight: 800;
-      font-size: 14px;
-    }
-
-    @media (max-width: 900px) {
-      .hero-grid, .split {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        padding: 72px 0;
-      }
-
-      .hero-grid {
-        gap: 35px;
-      }
-
-      .grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .contact-panel {
-        grid-template-columns: 1fr;
-        padding: 35px;
-      }
-    }
-
-    @media (max-width: 650px) {
-      .nav {
-        padding: 15px 0;
-        align-items: flex-start;
-      }
-
-      .nav-links {
-        justify-content: flex-end;
-        flex-wrap: wrap;
-        gap: 10px 14px;
-        font-size: 12px;
-      }
-
-      .nav-links .optional {
-        display: none;
-      }
-
-      .brand {
-        font-size: 14px;
-      }
-
-      .brand small {
-        font-size: 8px;
-        letter-spacing: .7px;
-      }
-
-      h1 {
-        letter-spacing: -1.5px;
-      }
-
-      .hero-copy {
-        font-size: 16px;
-      }
-
-      section {
-        padding: 60px 0;
-      }
-
-      .grid {
-        grid-template-columns: 1fr;
-      }
-
-      .card {
-        padding: 23px;
-      }
-
-      .contact-panel {
-        padding: 25px;
-      }
-
-      .actions .btn, .contact-actions .btn {
-        width: 100%;
-      }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101a2c">
+<meta name="description" content="Daemon IT Consulting & Tech Services helps businesses solve technology problems through IT consulting, cloud and infrastructure, custom software and application development, debugging, data recovery guidance, analytics, and AI solutions.">
+<meta property="og:title" content="Daemon IT Consulting & Tech Services">
+<meta property="og:description" content="Practical technology services to solve problems, build software, and keep teams moving.">
+<meta property="og:type" content="website">
+<title>Daemon IT Consulting &amp; Tech Services | Technology Solutions</title>
+<style>
+:root{--ink:#101a2c;--ink2:#182840;--muted:#64748b;--paper:#f7f9fc;--white:#fff;--line:#e1e7ef;--teal:#00b9c7;--teal2:#b9f4f2;--blue:#4263eb;--max:1160px;--radius:18px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:var(--white);line-height:1.65}
+a{color:inherit;text-decoration:none}
+.container{width:min(var(--max),91%);margin:auto}
+.topbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.nav{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:25px}
+.brand{font-weight:900;font-size:17px;letter-spacing:-.4px;line-height:1.2}.brand em{font-style:normal;color:var(--teal)}.brand small{display:block;font-size:9px;color:var(--muted);letter-spacing:1.55px;margin-top:7px;font-weight:750}
+.navlinks{display:flex;align-items:center;gap:25px;color:#475569;font-size:13px;font-weight:650}.navlinks a:hover{color:var(--teal)}
+.navcta{background:var(--ink);color:#fff!important;border-radius:8px;padding:11px 17px}
+.hero{position:relative;overflow:hidden;background:var(--ink);color:white;padding:94px 0 86px}
+.hero:before{content:"";position:absolute;width:650px;height:650px;right:-140px;top:-280px;background:radial-gradient(circle,rgba(0,185,199,.23),transparent 68%);pointer-events:none}
+.hero:after{content:"";position:absolute;width:480px;height:480px;left:-240px;bottom:-340px;background:radial-gradient(circle,rgba(66,99,235,.2),transparent 68%);pointer-events:none}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:center}
+.kicker{font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:850;color:var(--teal);margin-bottom:20px;display:flex;align-items:center;gap:10px}.kicker:before{content:"";height:2px;width:24px;background:currentColor}
+h1{font-size:clamp(39px,5.4vw,68px);line-height:1.06;letter-spacing:-2.7px;margin-bottom:24px;max-width:740px}
+h1 span{color:#63e5e6}
+.hero-copy{font-size:17px;color:#c5d0df;max-width:650px;margin-bottom:30px}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn{min-height:48px;display:inline-flex;align-items:center;justify-content:center;padding:13px 19px;border-radius:9px;font-size:13px;font-weight:800;transition:transform .18s,background .18s}.btn:hover{transform:translateY(-2px)}
+.primary{background:var(--teal);color:#06232a}.secondary{border:1px solid #526176;color:white;background:rgba(255,255,255,.04)}
+.hero-proof{display:flex;flex-wrap:wrap;gap:10px 20px;margin-top:30px;color:#c5d0df;font-size:11px}.hero-proof span:before{content:"✓";color:var(--teal);font-weight:900;margin-right:7px}
+.hero-panel{border:1px solid rgba(255,255,255,.14);background:linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.025));border-radius:22px;padding:28px;box-shadow:0 24px 70px rgba(0,0,0,.22)}
+.panel-label{font-size:10px;color:#63e5e6;letter-spacing:1.8px;font-weight:850;margin-bottom:16px}
+.hero-panel h2{font-size:25px;line-height:1.25;letter-spacing:-.6px;margin-bottom:12px}.hero-panel>p{font-size:13px;color:#c5d0df;margin-bottom:20px}
+.capability{display:grid;grid-template-columns:38px 1fr;gap:12px;padding:15px 0;border-top:1px solid rgba(255,255,255,.13)}
+.cap-icon{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:rgba(0,185,199,.13);color:#63e5e6;font-size:18px}
+.capability strong{display:block;font-size:13px}.capability small{display:block;color:#b5c2d3;font-size:11px;line-height:1.5;margin-top:3px}
+section{padding:84px 0}
+.section-head{max-width:740px;margin-bottom:38px}.section-head.center{text-align:center;margin-left:auto;margin-right:auto}.section-head.center .kicker{justify-content:center}
+.section-head h2{font-size:clamp(30px,4vw,46px);line-height:1.15;letter-spacing:-1.4px;margin-bottom:15px}.section-head p{color:var(--muted);font-size:15px}
+.services{background:var(--paper)}
+.service-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+.service{background:white;border:1px solid var(--line);border-radius:15px;padding:25px;min-height:245px;transition:transform .2s,border-color .2s,box-shadow .2s}
+.service:hover{transform:translateY(-3px);border-color:#9be5e6;box-shadow:0 15px 35px rgba(16,26,44,.06)}
+.service-icon{width:43px;height:43px;display:grid;place-items:center;border-radius:12px;background:#e7fbfb;color:#087f89;font-size:20px;margin-bottom:18px}
+.service h3{font-size:17px;letter-spacing:-.3px;line-height:1.3;margin-bottom:10px}.service p{font-size:13px;color:var(--muted);margin-bottom:14px}
+.service ul{list-style:none;font-size:12px;color:#475569}.service li{margin-top:6px}.service li:before{content:"—";color:var(--teal);font-weight:900;margin-right:7px}
+.service.featured{border-color:#8cdddd;background:linear-gradient(145deg,#fff,#f0fdfd)}
+.band{background:#fff}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.split h2{font-size:clamp(30px,4vw,43px);line-height:1.15;letter-spacing:-1.2px;margin-bottom:17px}.split p{color:var(--muted);font-size:14px;margin-bottom:15px}
+.feature-list{display:grid;gap:12px}.feature{padding:18px 20px;border:1px solid var(--line);border-radius:12px;background:#fff}.feature strong{display:block;font-size:14px;margin-bottom:4px}.feature span{display:block;font-size:12px;color:var(--muted)}
+.darkband{background:var(--ink);color:white}.darkband .section-head p{color:#bdc8d8}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.step{border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);border-radius:15px;padding:25px}
+.step-number{color:#63e5e6;font-size:11px;font-weight:900;letter-spacing:1.5px;margin-bottom:17px}.step h3{font-size:18px;margin-bottom:9px}.step p{color:#bdc8d8;font-size:13px}
+.contact{padding:70px 0;background:var(--paper)}
+.contact-box{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center;padding:42px;background:var(--ink);color:white;border-radius:20px;position:relative;overflow:hidden}
+.contact-box:after{content:"";position:absolute;right:-110px;top:-190px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(0,185,199,.22),transparent 70%);pointer-events:none}
+.contact-box h2{font-size:clamp(29px,4vw,42px);line-height:1.15;letter-spacing:-1px;margin-bottom:12px;max-width:700px}.contact-box p{font-size:14px;color:#bdc8d8;max-width:720px}
+.contact-actions{position:relative;z-index:1;display:flex;gap:10px;flex-wrap:wrap}
+.contact-note{margin-top:18px;color:#748196;font-size:11px}
+footer{padding:29px 0;border-top:1px solid var(--line)}.footer-row{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}.footer-brand{font-size:13px;font-weight:850}.footer-row p,.footer-row a{font-size:11px;color:var(--muted)}.footer-row a:hover{color:var(--teal)}
+@media(max-width:950px){.hero-grid,.split{grid-template-columns:1fr;gap:35px}.hero{padding:72px 0}.hero-panel{max-width:650px}.service-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.contact-box{grid-template-columns:1fr}.steps{grid-template-columns:1fr}}
+@media(max-width:650px){.nav{padding:14px 0;align-items:flex-start}.navlinks{gap:8px 13px;justify-content:flex-end;flex-wrap:wrap;font-size:11px}.navlinks .optional{display:none}.brand{font-size:14px}.brand small{font-size:8px;letter-spacing:.8px}.navcta{padding:8px 11px}h1{letter-spacing:-1.5px}.hero-copy{font-size:15px}.hero-panel{padding:22px}.service-grid{grid-template-columns:1fr}section{padding:62px 0}.service{min-height:0;padding:22px}.contact-box{padding:27px}.contact-actions .btn{width:100%}.contact-actions{width:100%}}
+</style>
 </head>
-
 <body>
-
-  <header class="topbar">
-    <div class="container nav">
-
-      <a class="brand" href="#home" aria-label="Daemon IT Consulting and Tech Services home">
-        DAEMON <span>IT CONSULTING</span>
-        <small>TECH SERVICES • DATA • AI SOLUTIONS</small>
-      </a>
-
-      <nav class="nav-links" aria-label="Main navigation">
-        <a href="#services">Services</a>
-        <a href="#approach">Our Approach</a>
-        <a href="#process" class="optional">How It Works</a>
-        <a href="#contact" class="nav-cta">Contact Us</a>
-      </nav>
-
-    </div>
-  </header>
-
-  <main>
-
-    <section class="hero" id="home">
-      <div class="container hero-grid">
-
-        <div>
-          <div class="eyebrow">Technology Services. Data Intelligence. AI-Powered Business Solutions.</div>
-
-          <h1>
-            Solve Technology Problems.
-            <span>Move Forward.</span>
-          </h1>
-
-          <p class="hero-copy">
-            Daemon IT Consulting &amp; Tech Services helps individuals
-            and businesses navigate data recovery challenges, technical
-            problems, IT decisions, and infrastructure needs.
-          </p>
-
-          <div class="actions">
-            <a class="btn btn-primary" href="#contact">
-              Discuss Your Needs →
-            </a>
-
-            <a class="btn btn-secondary" href="#services">
-              Explore Services
-            </a>
-          </div>
-
-          <p class="hero-note">
-            Technology services. Data intelligence. AI-powered business solutions.
-          </p>
-        </div>
-
-        <aside class="hero-card">
-          <div class="status">Technology Services</div>
-
-          <h2>Technology Services. Data Intelligence. AI-Powered Solutions.</h2>
-
-          <p>
-            From data accessibility concerns to IT planning and technical
-            troubleshooting, start by identifying the problem and the
-            right next step.
-          </p>
-
-          <div class="capability">
-            <span class="icon">⌁</span>
-            <div>
-              <strong>Data Recovery &amp; Data Intelligence</strong>
-              <small>Assess data-access issues and make better use of business information.</small>
-            </div>
-          </div>
-
-          <div class="capability">
-            <span class="icon">⌘</span>
-            <div>
-              <strong>IT Consulting</strong>
-              <small>Technical planning, analysis, and problem-solving.</small>
-            </div>
-          </div>
-
-          <div class="capability">
-            <span class="icon">⌬</span>
-            <div>
-              <strong>Technology Services</strong>
-              <small>Support for systems, platforms, and infrastructure.</small>
-            </div>
-          </div>
-        </aside>
-
-      </div>
-    </section>
-
-    <section id="services">
-      <div class="container">
-
-        <div class="section-head">
-          <div class="eyebrow">What We Do</div>
-
-          <h2>Technology, Data &amp; AI Solutions Built Around Your Needs</h2>
-
-          <p>
-            Get help with data recovery, IT consulting, infrastructure, custom software and application development,
-            software debugging, business analytics, and AI-enabled workflows.
-          </p>
-        </div>
-
-        <div class="grid">
-
-          <article class="card">
-            <div class="card-icon">▤</div>
-
-            <h3>Data Recovery</h3>
-
-            <p>
-              Explore options when important files become inaccessible, disappear,
-              or appear to be lost, with recovery options based on assessment.
-            </p>
-
-            <ul>
-              <li>File-access troubleshooting</li>
-              <li>Storage and recovery assessment</li>
-              <li>Recovery options and next steps</li>
-              <li>Data-loss prevention guidance</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <div class="card-icon">⌘</div>
-
-            <h3>IT Consulting</h3>
-
-            <p>
-              Make better-informed technology decisions with practical
-              analysis and technical guidance.
-            </p>
-
-            <ul>
-              <li>Technology assessments</li>
-              <li>Technical troubleshooting</li>
-              <li>Systems and platform planning</li>
-              <li>Technology recommendations</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <div class="card-icon">⚙</div>
-
-            <h3>Tech Services &amp; Support</h3>
-
-            <p>
-              Identify technology issues and evaluate appropriate
-              support and resolution options.
-            </p>
-
-            <ul>
-              <li>Technical problem assessment</li>
-              <li>Software and system guidance</li>
-              <li>Configuration troubleshooting</li>
-              <li>Technology support planning</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <div class="card-icon">☁</div>
-
-            <h3>Cloud &amp; Infrastructure</h3>
-
-            <p>
-              Explore infrastructure strategies for dependable,
-              maintainable, and scalable technology environments.
-            </p>
-
-            <ul>
-              <li>Cloud architecture guidance</li>
-              <li>Infrastructure planning</li>
-              <li>Automation and platform strategy</li>
-              <li>Reliability and operations</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <div class="card-icon">◇</div>
-
-            <h3>Business Analytics &amp; Automation</h3>
-
-            <p>
-              Turn business data and repetitive workflows into clearer reporting,
-              actionable insights, and more efficient processes.
-            </p>
-
-            <ul>
-              <li>Solution evaluation</li>
-              <li>Workflow and automation guidance</li>
-              <li>Application and platform planning</li>
-              <li>Technical implementation planning</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <div class="card-icon">◈</div>
-
-            <h3>AI Solutions &amp; Intelligent Automation</h3>
-
-            <p>
-              Explore practical AI solutions for customer engagement, business workflows,
-              and technology operations.
-            </p>
-
-            <ul>
-              <li>AI infrastructure consulting</li>
-              <li>Technology readiness discussions</li>
-              <li>Platform and deployment planning</li>
-              <li>Emerging technology evaluation</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <div class="card-icon">⌘</div>
-            <h3>Custom Software Development</h3>
-            <p>Build software tailored to your business requirements, workflows, and technical goals.</p>
-            <ul>
-              <li>Custom tools and business applications</li>
-              <li>Workflow and process solutions</li>
-              <li>System and service integrations</li>
-              <li>Enhancements to existing software</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <div class="card-icon">▣</div>
-            <h3>Application Development</h3>
-            <p>Develop and improve applications that help your team serve customers, streamline work, and connect systems.</p>
-            <ul>
-              <li>Application design and implementation</li>
-              <li>API and integration development</li>
-              <li>Feature additions and improvements</li>
-              <li>Maintenance and technical enhancements</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <div class="card-icon">⚒</div>
-            <h3>Software Debugging &amp; Troubleshooting</h3>
-            <p>We take on software debugging and troubleshooting so your developers and DevOps team can stay focused on building, shipping, and operating your product. We investigate bugs, application errors, integration failures, and deployment-related issues to identify root causes and implement fixes.</p>
-            <ul>
-              <li>Bug investigation and error diagnosis</li>
-              <li>Root-cause analysis and targeted fixes</li>
-              <li>Application and integration troubleshooting</li>
-              <li>Extra debugging support for development and DevOps teams</li>
-            </ul>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <section class="highlight" id="approach">
-      <div class="container split">
-
-        <div>
-          <div class="eyebrow">Our Approach</div>
-
-          <h2>Understand the Problem Before Choosing the Solution.</h2>
-
-          <p>
-            Technology issues can have several possible causes. A clear
-            assessment helps determine what to investigate, which options
-            are appropriate, and what the next step should be.
-          </p>
-
-          <p>
-            Daemon IT Consulting &amp; Tech Services emphasizes
-            practical guidance, transparent communication, and solutions
-            appropriate to the situation.
-          </p>
-
-          <a class="btn btn-primary" href="#contact">
-            Start a Conversation →
-          </a>
-        </div>
-
-        <div class="feature-list">
-
-          <div class="feature">
-            <strong>01. Understand</strong>
-            <span>Identify your issue, objectives, and constraints.</span>
-          </div>
-
-          <div class="feature">
-            <strong>02. Evaluate</strong>
-            <span>Review possible approaches and relevant trade-offs.</span>
-          </div>
-
-          <div class="feature">
-            <strong>03. Recommend</strong>
-            <span>Determine practical next steps based on your needs.</span>
-          </div>
-
-          <div class="feature">
-            <strong>04. Move Forward</strong>
-            <span>Establish a path toward resolution or implementation.</span>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <section id="process">
-      <div class="container split">
-
-        <div>
-          <div class="eyebrow">Getting Started</div>
-
-          <h2>A Straightforward Way to Begin</h2>
-
-          <p>
-            Whether you have a data-access problem, a technical question,
-            or an infrastructure challenge, begin with a clear description
-            of what you need.
-          </p>
-
-          <p>
-            We'll use that information to determine whether the requested
-            service is within scope and what the appropriate next step may be.
-          </p>
-        </div>
-
-        <div class="steps">
-
-          <div class="step">
-            <h3>Describe Your Challenge</h3>
-            <p>Explain the issue, desired outcome, and relevant technology.</p>
-          </div>
-
-          <div class="step">
-            <h3>Review the Situation</h3>
-            <p>Identify available information and possible approaches.</p>
-          </div>
-
-          <div class="step">
-            <h3>Discuss Next Steps</h3>
-            <p>Determine potential services, scope, and expectations.</p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="container">
-
-        <div class="contact-panel">
-
-          <div>
-            <div class="eyebrow">Let's Talk Technology</div>
-
-            <h2>Have a Technology Challenge?</h2>
-
-            <p>
-              Tell us what you're trying to resolve, build, debug, or improve.
-              Start a conversation about data recovery, software development,
-              application troubleshooting, IT consulting, or infrastructure.
-            </p>
-          </div>
-
-          <div class="contact-actions">
-            <a class="btn btn-primary"
-               href="mailto:barry.ellison@comcast.net?subject=Daemon%20Data%20-%20Service%20Inquiry">
-              Email Us →
-            </a>
-          </div>
-
-        </div>
-
-        <p class="notice">
-          Data recovery outcomes depend on the device, the type of data
-          loss, and the condition of the storage media. Recovery is not
-          guaranteed. Services and availability are subject to assessment
-          and confirmation.
-        </p>
-
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <div class="container footer-row">
-
-      <div>
-        <div class="footer-brand">
-          Daemon IT Consulting &amp; Tech Services
-        </div>
-
-        <p>Technology Services • Data Intelligence • AI-Powered Business Solutions</p>
-      </div>
-
-      <p>
-        © <span id="year"></span> Daemon IT Consulting. All rights reserved.
-      </p>
-
-      <a href="#home">Back to top ↑</a>
-
-    </div>
-  </footer>
-
-  <script>
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
-  </script>
-
+<header class="topbar">
+ <div class="container nav">
+  <a class="brand" href="#home" aria-label="Daemon IT Consulting home">DAEMON <em>IT CONSULTING</em><small>TECH SERVICES • SOFTWARE • AI</small></a>
+  <nav class="navlinks" aria-label="Main navigation">
+   <a href="#services">Services</a><a href="#approach">Why Daemon</a><a class="optional" href="#process">How It Works</a><a class="navcta" href="#contact">Talk to Us ↗</a>
+  </nav>
+ </div>
+</header>
+<main>
+<section class="hero" id="home">
+ <div class="container hero-grid">
+  <div>
+   <div class="kicker">IT Consulting • Software • Technical Services</div>
+   <h1>Technology problems solved. <span>Good ideas built.</span></h1>
+   <p class="hero-copy">Daemon IT Consulting &amp; Tech Services helps businesses work through technical challenges, build useful software, and improve the systems behind their work. From debugging and application development to infrastructure and AI, we help move projects forward.</p>
+   <div class="actions"><a class="btn primary" href="#contact">Discuss Your Project ↗</a><a class="btn secondary" href="#services">Explore Our Services</a></div>
+   <div class="hero-proof"><span>Practical technical guidance</span><span>Software build and debug support</span><span>Business-focused solutions</span></div>
+  </div>
+  <aside class="hero-panel">
+   <div class="panel-label">HOW WE HELP</div>
+   <h2>Get the right technical work done—without losing focus on your core business.</h2>
+   <p>Bring us a problem to investigate, a workflow to improve, or an application you want to build.</p>
+   <div class="capability"><div class="cap-icon">⌘</div><div><strong>Build &amp; improve software</strong><small>Custom software, application development, APIs, and enhancements.</small></div></div>
+   <div class="capability"><div class="cap-icon">⌕</div><div><strong>Debug &amp; troubleshoot</strong><small>Investigate defects, integration issues, and deployment-related errors.</small></div></div>
+   <div class="capability"><div class="cap-icon">⌬</div><div><strong>Plan &amp; strengthen technology</strong><small>IT consulting, cloud, infrastructure, data, and AI solution planning.</small></div></div>
+  </aside>
+ </div>
+</section>
+<section class="services" id="services">
+ <div class="container">
+  <div class="section-head">
+   <div class="kicker">Our Services</div>
+   <h2>One technology partner. Multiple ways to move forward.</h2>
+   <p>Choose a service that fits the challenge in front of you. We can start with an assessment, discuss scope, and identify a practical next step.</p>
+  </div>
+  <div class="service-grid">
+   <article class="service"><div class="service-icon">⌘</div><h3>Custom Software Development</h3><p>Purpose-built software shaped around your business requirements and workflows.</p><ul><li>Business tools and tailored applications</li><li>Workflow solutions and integrations</li><li>Enhancements to existing software</li></ul></article>
+   <article class="service"><div class="service-icon">▣</div><h3>Application Development</h3><p>Build or improve applications that help teams serve customers and get work done.</p><ul><li>Application features and functionality</li><li>API and service integrations</li><li>Maintenance and technical improvements</li></ul></article>
+   <article class="service featured"><div class="service-icon">⚒</div><h3>Software Debugging &amp; Troubleshooting</h3><p>We take on debugging work so your developers and DevOps team can stay focused on delivery and operations.</p><ul><li>Bug investigation and root-cause analysis</li><li>Application and integration errors</li><li>Deployment-related troubleshooting</li></ul></article>
+   <article class="service"><div class="service-icon">⌁</div><h3>IT Consulting</h3><p>Make better-informed technical decisions with practical assessment and guidance.</p><ul><li>Technology and systems assessments</li><li>Technical problem-solving</li><li>Recommendations and planning</li></ul></article>
+   <article class="service"><div class="service-icon">☁</div><h3>Cloud &amp; Infrastructure</h3><p>Plan and improve the platforms that support applications and business services.</p><ul><li>Cloud and infrastructure strategy</li><li>Automation and platform planning</li><li>Reliability and operations guidance</li></ul></article>
+   <article class="service"><div class="service-icon">⚙</div><h3>Tech Services &amp; Support</h3><p>Work through technology issues and identify appropriate support and resolution paths.</p><ul><li>System and software troubleshooting</li><li>Configuration and integration issues</li><li>Technical support planning</li></ul></article>
+   <article class="service"><div class="service-icon">▤</div><h3>Data Recovery Guidance</h3><p>Assess data-access problems and explore appropriate recovery options.</p><ul><li>File and storage access issues</li><li>Recovery options and next steps</li><li>Data-loss prevention guidance</li></ul></article>
+   <article class="service"><div class="service-icon">◇</div><h3>Business Analytics &amp; Automation</h3><p>Make information easier to use and repetitive processes more efficient.</p><ul><li>Reporting and business insights</li><li>Workflow improvement</li><li>Automation planning</li></ul></article>
+   <article class="service"><div class="service-icon">◈</div><h3>AI Solutions &amp; Intelligent Automation</h3><p>Explore practical ways to apply AI to business workflows and technical operations.</p><ul><li>AI readiness and use-case discovery</li><li>Solution and platform planning</li><li>AI-enabled workflow concepts</li></ul></article>
+  </div>
+ </div>
+</section>
+<section id="approach">
+ <div class="container split">
+  <div>
+   <div class="kicker">Why Daemon</div>
+   <h2>Bring us the problem. We’ll help define the next step.</h2>
+   <p>You don’t always need another tool or a large project to get moving. Sometimes you need experienced technical help to understand what is failing, identify the options, or take on a focused piece of work.</p>
+   <p>Daemon works across consulting, software, debugging, infrastructure, and emerging technology—so the conversation can start with your business need rather than a predetermined product.</p>
+   <a class="btn" style="background:var(--ink);color:#fff;margin-top:8px" href="#contact">Tell Us What You Need ↗</a>
+  </div>
+  <div class="feature-list">
+   <div class="feature"><strong>Focused problem-solving</strong><span>Clarify the issue, understand constraints, and identify realistic options.</span></div>
+   <div class="feature"><strong>Extra engineering capacity</strong><span>Get help with debugging or defined software tasks without pulling your core team away from priorities.</span></div>
+   <div class="feature"><strong>Solutions shaped around your needs</strong><span>Discuss the scope before choosing a technical approach or implementation path.</span></div>
+   <div class="feature"><strong>Connected technical perspective</strong><span>Consider software, infrastructure, data, automation, and AI as parts of the same business environment.</span></div>
+  </div>
+ </div>
+</section>
+<section class="darkband" id="process">
+ <div class="container">
+  <div class="section-head">
+   <div class="kicker">A Clear Starting Point</div>
+   <h2>From challenge to next steps.</h2>
+   <p>Start a conversation with the details you have. We’ll use them to discuss fit, scope, and potential next steps.</p>
+  </div>
+  <div class="steps">
+   <article class="step"><div class="step-number">STEP 01</div><h3>Describe the challenge</h3><p>Tell us what you want to fix, build, improve, or understand, and which systems are involved.</p></article>
+   <article class="step"><div class="step-number">STEP 02</div><h3>Review the options</h3><p>Discuss the available information, possible approaches, dependencies, and desired outcome.</p></article>
+   <article class="step"><div class="step-number">STEP 03</div><h3>Agree on a path forward</h3><p>Determine whether the work fits our services and define potential scope and expectations.</p></article>
+  </div>
+ </div>
+</section>
+<section class="contact" id="contact">
+ <div class="container">
+  <div class="contact-box">
+   <div><div class="kicker">Let’s Talk Technology</div><h2>What do you need to build, fix, or improve?</h2><p>Tell us about your software project, debugging needs, infrastructure challenge, or business technology goal. We’ll start with the problem and discuss a practical next step.</p></div>
+   <div class="contact-actions"><a class="btn primary" href="mailto:barry.ellison@comcast.net?subject=Daemon%20IT%20Consulting%20-%20Project%20Inquiry">Email Daemon ↗</a></div>
+  </div>
+  <p class="contact-note">Services, scope, availability, and outcomes are subject to review and confirmation. Data recovery outcomes depend on the nature and condition of the affected storage; recovery is not guaranteed.</p>
+ </div>
+</section>
+</main>
+<footer><div class="container footer-row"><div><div class="footer-brand">Daemon IT Consulting &amp; Tech Services</div><p>Technology Services • Software • Data • AI Solutions</p></div><p>© <span id="year"></span> Daemon IT Consulting. All rights reserved.</p><a href="#home">Back to top ↑</a></div></footer>
+<script>document.getElementById("year").textContent=new Date().getFullYear();</script>
 </body>
 </html>
