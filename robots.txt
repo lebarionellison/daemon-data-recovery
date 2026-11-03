@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://daemon-it-consulting.lebarionellison.workers.dev/sitemap.xml
