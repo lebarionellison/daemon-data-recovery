@@ -74,6 +74,35 @@ section{padding:84px 0}
 footer{padding:29px 0;border-top:1px solid var(--line)}.footer-row{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}.footer-brand{font-size:13px;font-weight:850}.footer-row p,.footer-row a{font-size:11px;color:var(--muted)}.footer-row a:hover{color:var(--teal)}
 @media(max-width:950px){.hero-grid,.split{grid-template-columns:1fr;gap:35px}.hero{padding:72px 0}.hero-panel{max-width:650px}.service-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.contact-box{grid-template-columns:1fr}.steps{grid-template-columns:1fr}}
 @media(max-width:650px){.nav{padding:14px 0;align-items:flex-start}.navlinks{gap:8px 13px;justify-content:flex-end;flex-wrap:wrap;font-size:11px}.navlinks .optional{display:none}.brand{font-size:14px}.brand small{font-size:8px;letter-spacing:.8px}.navcta{padding:8px 11px}h1{letter-spacing:-1.5px}.hero-copy{font-size:15px}.hero-panel{padding:22px}.service-grid{grid-template-columns:1fr}section{padding:62px 0}.service{min-height:0;padding:22px}.contact-box{padding:27px}.contact-actions .btn{width:100%}.contact-actions{width:100%}}
+
+/* University and research-computing section */
+.university-section{background:#f2f6fa;border-top:1px solid #dce5ed;border-bottom:1px solid #dce5ed}
+.university-heading{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(260px,.65fr);gap:42px;align-items:center;margin-bottom:34px}
+.university-heading h2{font-size:clamp(30px,4vw,46px);line-height:1.12;letter-spacing:-1.4px;margin:8px 0 15px;max-width:760px}
+.university-heading p{color:#526273;font-size:14px;line-height:1.75;max-width:760px;margin:0 0 13px}
+.university-boundary{padding-left:14px;border-left:3px solid var(--teal);font-size:12px!important}
+.university-cta{display:inline-flex;align-items:center;gap:13px;margin-top:9px;padding:14px 19px;border-radius:9px;background:var(--ink);color:#fff;font-weight:800;font-size:12px;text-decoration:none}
+.university-cta span{color:#63e5e6;font-size:17px}
+.university-audience{display:grid;gap:0;padding:24px 25px;border-radius:16px;background:var(--ink);color:#fff;box-shadow:0 16px 36px rgba(16,26,44,.12)}
+.audience-label,.feature-label{font-size:9px;letter-spacing:1.6px;font-weight:900;color:#63e5e6;margin-bottom:12px}
+.university-audience strong{font-size:12px;line-height:1.4;font-weight:650;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.14)}
+.university-audience strong:last-child{border:0;padding-bottom:0}
+.university-services{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.university-service{background:#fff;border:1px solid #dce5ed;border-radius:14px;padding:22px;min-height:245px}
+.university-number{display:inline-block;color:#168c91;font-size:10px;font-weight:900;letter-spacing:1.2px;margin-bottom:12px}
+.university-service h3{font-size:16px;line-height:1.3;margin:0 0 9px;color:#14243a}
+.university-service p{font-size:12px;line-height:1.65;color:#64748b;margin:0 0 12px}
+.university-service ul{list-style:none;padding:0;margin:0;font-size:11px;line-height:1.55;color:#475569}
+.university-service li{margin-top:6px}
+.university-service li:before{content:"—";color:#168c91;font-weight:900;margin-right:7px}
+.university-service-feature{background:var(--ink);border-color:var(--ink);color:#fff}
+.university-service-feature h3{color:#fff;font-size:19px}
+.university-service-feature p{color:#c5d0df}
+.university-service-feature>a{display:inline-block;margin-top:9px;color:#70e4e5;font-size:12px;font-weight:800;text-decoration:none}
+.university-disclaimer{font-size:10px;line-height:1.65;color:#64748b;margin:20px 0 0;max-width:1100px}
+@media(max-width:950px){.university-heading{grid-template-columns:1fr;gap:24px}.university-services{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.university-services{grid-template-columns:1fr}.university-service{min-height:0}.university-cta{width:100%;justify-content:space-between;box-sizing:border-box}}
+
 </style>
 </head>
 <body>
@@ -81,7 +110,7 @@ footer{padding:29px 0;border-top:1px solid var(--line)}.footer-row{display:flex;
  <div class="container nav">
   <a class="brand" href="#home" aria-label="Daemon IT Consulting and Tech Services home">DAEMON <em>IT CONSULTING</em><small>&amp; TECH SERVICES</small></a>
   <nav class="navlinks" aria-label="Main navigation">
-   <a href="#services">Services</a><a href="#approach">Why Daemon</a><a class="optional" href="#process">How It Works</a><a class="navcta" href="#contact">Talk to Us ↗</a>
+   <a href="#services">Services</a><a href="#universities">Universities</a><a href="#approach">Why Daemon</a><a class="optional" href="#process">How It Works</a><a class="navcta" href="#contact">Talk to Us ↗</a>
   </nav>
  </div>
 </header>
@@ -145,6 +174,69 @@ footer{padding:29px 0;border-top:1px solid var(--line)}.footer-row{display:flex;
   </div>
  </div>
 </section>
+
+<section id="universities" class="university-section">
+ <div class="container">
+  <div class="university-heading">
+   <div>
+    <div class="kicker">University &amp; Research Computing</div>
+    <h2>Engineering support for the infrastructure behind discovery.</h2>
+    <p>Research computing environments bring together Linux systems, compute resources, storage, networking, schedulers, accelerators, and specialized software. Daemon IT Consulting &amp; Tech Services offers scoped technical support to help universities, departments, and research labs assess infrastructure, investigate issues, and move defined engineering projects forward.</p>
+    <p class="university-boundary">We work alongside existing university IT, HPC, research, security, and vendor teams. Each engagement is defined around approved access, available resources, technical scope, and agreed deliverables.</p>
+    <a class="university-cta" href="mailto:barry.ellison@comcast.net?subject=University%20and%20Research%20Computing%20Support">Discuss University &amp; Research Computing Support <span>↗</span></a>
+   </div>
+   <aside class="university-audience">
+    <span class="audience-label">WHO WE SUPPORT</span>
+    <strong>University research-computing teams</strong>
+    <strong>Engineering and science departments</strong>
+    <strong>AI and machine-learning research labs</strong>
+    <strong>Biomedical and computational research groups</strong>
+    <strong>University-affiliated research centers</strong>
+    <strong>Smaller institutions needing project-based capacity</strong>
+   </aside>
+  </div>
+  <div class="university-services">
+   <article class="university-service">
+    <span class="university-number">01</span>
+    <h3>Research Computing Infrastructure Assessments</h3>
+    <p>Review selected parts of a research environment to identify configuration concerns, operational risks, bottlenecks, and improvement opportunities.</p>
+    <ul><li>Linux compute and server configuration reviews</li><li>Storage, networking, and workload-path assessments</li><li>Operational readiness and documentation findings</li></ul>
+   </article>
+   <article class="university-service">
+    <span class="university-number">02</span>
+    <h3>HPC &amp; GPU Workload Support</h3>
+    <p>Investigate issues affecting high-performance computing and AI research workflows.</p>
+    <ul><li>Slurm jobs, queues, and scheduling behavior</li><li>GPU environment and CUDA dependency troubleshooting</li><li>Container, library, and workload execution issues</li></ul>
+   </article>
+   <article class="university-service">
+    <span class="university-number">03</span>
+    <h3>Research Lab Infrastructure Support</h3>
+    <p>Provide project-based assistance for departments and labs operating their own compute and research software environments.</p>
+    <ul><li>Linux systems and research workstation support</li><li>Environment setup and reproducibility improvements</li><li>Technical documentation and operational handoff</li></ul>
+   </article>
+   <article class="university-service">
+    <span class="university-number">04</span>
+    <h3>Automation &amp; Observability</h3>
+    <p>Improve repeatable operations and visibility into the health and behavior of supported infrastructure.</p>
+    <ul><li>Monitoring, metrics, logs, and alerting reviews</li><li>Infrastructure automation and configuration workflows</li><li>Deployment and operational workflow improvements</li></ul>
+   </article>
+   <article class="university-service">
+    <span class="university-number">05</span>
+    <h3>Project-Based HPC Engineering</h3>
+    <p>Engage for a defined technical objective, troubleshooting effort, or remediation project with agreed deliverables.</p>
+    <ul><li>Issue investigation and root-cause findings</li><li>Scoped implementation and remediation support</li><li>Validation, documentation, and handoff</li></ul>
+   </article>
+   <article class="university-service university-service-feature">
+    <span class="feature-label">A CLEAR, COLLABORATIVE ENGAGEMENT</span>
+    <h3>Extend your team's capacity. Keep your team in control.</h3>
+    <p>Start with a technical discussion. Define the environment, access requirements, scope, and success criteria. Then proceed with approved work, documented findings, and a clear handoff.</p>
+    <a href="mailto:barry.ellison@comcast.net?subject=Research%20Computing%20Project%20Discussion">Scope a research computing project ↗</a>
+   </article>
+  </div>
+  <p class="university-disclaimer">Engagement scope depends on the technologies, access, documentation, and resources available. Daemon IT does not represent an existing university contract or institutional partnership, nor claim operation of a university supercomputer. Work involving specialized accelerators, high-speed interconnects, licensed research software, or production-critical systems may require coordination with institutional administrators, security teams, or equipment vendors.</p>
+ </div>
+</section>
+
 <section id="approach">
  <div class="container split">
   <div>
