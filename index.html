@@ -76,6 +76,27 @@ footer{padding:29px 0;border-top:1px solid var(--line)}.footer-row{display:flex;
 @media(max-width:650px){.nav{padding:14px 0;align-items:flex-start}.navlinks{gap:8px 13px;justify-content:flex-end;flex-wrap:wrap;font-size:11px}.navlinks .optional{display:none}.brand{font-size:14px}.brand small{font-size:8px;letter-spacing:.8px}.navcta{padding:8px 11px}h1{letter-spacing:-1.5px}.hero-copy{font-size:15px}.hero-panel{padding:22px}.service-grid{grid-template-columns:1fr}section{padding:62px 0}.service{min-height:0;padding:22px}.contact-box{padding:27px}.contact-actions .btn{width:100%}.contact-actions{width:100%}}
 
 /* University and research-computing section */
+.hpc-capability-section{padding:72px 0;background:#fff;border-top:1px solid #dce5ed}
+.hpc-capability-head{max-width:790px;margin:0 0 30px}
+.hpc-capability-head h2{font-size:clamp(28px,3.8vw,42px);line-height:1.14;letter-spacing:-1.2px;margin:8px 0 13px}
+.hpc-capability-head p{font-size:14px;color:#64748b;line-height:1.75}
+.hpc-capability-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.hpc-capability-card{padding:22px;border:1px solid #dce5ed;border-radius:14px;background:#f9fbfd}
+.hpc-capability-label{display:block;color:#168c91;font-size:9px;font-weight:900;letter-spacing:1.35px;margin-bottom:12px}
+.hpc-capability-card h3{font-size:16px;line-height:1.3;margin-bottom:9px}
+.hpc-capability-card p,.hpc-investigation p{font-size:12px;line-height:1.7;color:#64748b}
+.hpc-capability-card ul{list-style:none;margin-top:12px;font-size:11px;color:#475569}
+.hpc-capability-card li{margin-top:6px}
+.hpc-capability-card li:before{content:"—";color:#168c91;font-weight:900;margin-right:7px}
+.hpc-investigation{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:20px;padding:27px;border-radius:16px;background:#101a2c;color:#fff}
+.hpc-investigation h3{font-size:19px;line-height:1.3;margin:0 0 11px}
+.hpc-investigation p{color:#c5d0df}
+.hpc-engagement{padding:20px;border:1px solid rgba(255,255,255,.15);border-radius:12px;background:rgba(255,255,255,.04)}
+.hpc-engagement ol{padding-left:18px;color:#c5d0df;font-size:11px;line-height:1.65}
+.hpc-engagement li{padding:0 0 9px 3px}
+.hpc-engagement strong{color:#fff}
+@media(max-width:950px){.hpc-capability-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hpc-investigation{grid-template-columns:1fr}}
+@media(max-width:650px){.hpc-capability-grid{grid-template-columns:1fr}.hpc-investigation{padding:20px}.hpc-capability-card{padding:20px}}
 .university-section{background:#f2f6fa;border-top:1px solid #dce5ed;border-bottom:1px solid #dce5ed}
 .university-heading{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(260px,.65fr);gap:42px;align-items:center;margin-bottom:34px}
 .university-heading h2{font-size:clamp(30px,4vw,46px);line-height:1.12;letter-spacing:-1.4px;margin:8px 0 15px;max-width:760px}
@@ -110,7 +131,7 @@ footer{padding:29px 0;border-top:1px solid var(--line)}.footer-row{display:flex;
  <div class="container nav">
   <a class="brand" href="#home" aria-label="Daemon IT Consulting and Tech Services home">DAEMON <em>IT CONSULTING</em><small>&amp; TECH SERVICES</small></a>
   <nav class="navlinks" aria-label="Main navigation">
-   <a href="#services">Services</a><a href="#universities">Universities</a><a href="#approach">Why Daemon</a><a class="optional" href="#process">How It Works</a><a class="navcta" href="#contact">Talk to Us ↗</a>
+   <a href="#services">Services</a><a href="#universities">Universities</a><a href="#hpc-capabilities">HPC Capabilities</a><a href="#approach">Why Daemon</a><a class="optional" href="#process">How It Works</a><a class="navcta" href="#contact">Talk to Us ↗</a>
   </nav>
  </div>
 </header>
@@ -233,7 +254,68 @@ footer{padding:29px 0;border-top:1px solid var(--line)}.footer-row{display:flex;
     <a href="mailto:barry.ellison@comcast.net?subject=Research%20Computing%20Project%20Discussion">Scope a research computing project ↗</a>
    </article>
   </div>
-  <p class="university-disclaimer">Engagement scope depends on the technologies, access, documentation, and resources available. Daemon IT does not represent an existing university contract or institutional partnership, nor claim operation of a university supercomputer. Work involving specialized accelerators, high-speed interconnects, licensed research software, or production-critical systems may require coordination with institutional administrators, security teams, or equipment vendors.</p>
+  <section class="hpc-capability-section" id="hpc-capabilities" aria-labelledby="hpc-capabilities-title">
+   <div class="hpc-capability-head">
+    <div class="kicker">HPC Engineering Capabilities</div>
+    <h2 id="hpc-capabilities-title">Targeted support for complex research-computing environments.</h2>
+    <p>Daemon IT can work alongside university HPC administrators and research-computing teams on defined investigations, remediation tasks, and engineering projects. Support is scoped to the systems, permissions, and technical requirements approved by the institution.</p>
+   </div>
+   <div class="hpc-capability-grid">
+    <article class="hpc-capability-card">
+     <span class="hpc-capability-label">COMPUTE &amp; LINUX</span>
+     <h3>HPC cluster and compute-node support</h3>
+     <p>Investigate selected Linux compute-node and cluster issues, including service health, configuration drift, resource availability, boot or provisioning problems, and node-level failures.</p>
+     <ul><li>Linux compute-node troubleshooting</li><li>Node health and configuration reviews</li><li>Cluster service and capacity observations</li></ul>
+    </article>
+    <article class="hpc-capability-card">
+     <span class="hpc-capability-label">SCHEDULING &amp; WORKLOADS</span>
+     <h3>Slurm scheduler and job troubleshooting</h3>
+     <p>Help investigate why research workloads do not start, remain pending, fail, or perform unexpectedly, using approved scheduler and job information.</p>
+     <ul><li>Slurm queues, partitions, and job states</li><li>Job scripts, resource requests, and failure logs</li><li>Workload execution and scheduling behavior</li></ul>
+    </article>
+    <article class="hpc-capability-card">
+     <span class="hpc-capability-label">GPU &amp; ACCELERATED COMPUTING</span>
+     <h3>GPU and CUDA environment troubleshooting</h3>
+     <p>Investigate software and configuration issues that can prevent supported GPU workloads from initializing or running as expected.</p>
+     <ul><li>GPU visibility and device assignment issues</li><li>CUDA, driver, runtime, and library compatibility</li><li>Containerized GPU workload configuration</li></ul>
+    </article>
+    <article class="hpc-capability-card">
+     <span class="hpc-capability-label">DATA PATH &amp; FABRIC</span>
+     <h3>Parallel storage and high-performance networking</h3>
+     <p>Assist with scoped investigation of data-access and connectivity symptoms across research workloads, storage services, and network paths.</p>
+     <ul><li>Shared and parallel filesystem access symptoms</li><li>Mount, permissions, throughput, and I/O observations</li><li>Network path and connectivity troubleshooting</li></ul>
+    </article>
+    <article class="hpc-capability-card">
+     <span class="hpc-capability-label">CONTAINERS &amp; SOFTWARE STACK</span>
+     <h3>Research software and container compatibility</h3>
+     <p>Review environment and dependency issues that affect reproducibility and execution across supported compute environments.</p>
+     <ul><li>Container runtime and image configuration</li><li>Library, module, and dependency conflicts</li><li>Environment setup and reproducibility checks</li></ul>
+    </article>
+    <article class="hpc-capability-card">
+     <span class="hpc-capability-label">OPERATIONS &amp; VISIBILITY</span>
+     <h3>Cluster monitoring and performance analysis</h3>
+     <p>Review available telemetry and operational evidence to help teams understand recurring errors, utilization patterns, and potential bottlenecks.</p>
+     <ul><li>Metrics, logs, alerts, and node health signals</li><li>CPU, memory, GPU, and workload utilization observations</li><li>Performance findings and prioritized recommendations</li></ul>
+    </article>
+   </div>
+   <div class="hpc-investigation">
+    <div>
+     <div class="feature-label">EXAMPLES OF INVESTIGATIONS</div>
+     <h3>Start with the problem your team needs resolved.</h3>
+     <p>Potential project scopes include failed or pending workloads, scheduler errors, GPU configuration problems, CUDA or driver mismatches, container compatibility failures, compute-node instability, storage access or I/O symptoms, and infrastructure performance bottlenecks.</p>
+    </div>
+    <div class="hpc-engagement">
+     <h3>An additional engineering resource—not a replacement for your HPC team.</h3>
+     <ol>
+      <li><strong>Define the scope.</strong> Identify the affected environment, symptoms, desired outcome, and success criteria.</li>
+      <li><strong>Confirm approved access.</strong> Agree on permissions, change controls, data handling, maintenance windows, and institutional points of contact.</li>
+      <li><strong>Investigate and report.</strong> Work within the approved scope, document findings, and recommend or perform agreed remediation.</li>
+      <li><strong>Validate and hand off.</strong> Review outcomes with the university team and provide practical notes for ongoing operations.</li>
+     </ol>
+    </div>
+   </div>
+   <p class="university-disclaimer">Capability statements describe areas for assessment and scoped project support, not a claim of prior operation of a university supercomputer, a specific vendor-certified capability, or an existing institutional contract or partnership. Actual work depends on demonstrated fit, system access, documentation, approved change procedures, and available resources. Specialized accelerators, high-speed interconnects, parallel filesystems, licensed research software, and production-critical changes may require direct coordination with institutional administrators, security teams, or equipment vendors. Daemon IT does not replace the university's HPC operations, security, or research-support teams.</p>
+  </section>
  </div>
 </section>
 
