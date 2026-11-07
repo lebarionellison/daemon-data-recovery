@@ -124,6 +124,31 @@ footer{padding:29px 0;border-top:1px solid var(--line)}.footer-row{display:flex;
 @media(max-width:950px){.university-heading{grid-template-columns:1fr;gap:24px}.university-services{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:650px){.university-services{grid-template-columns:1fr}.university-service{min-height:0}.university-cta{width:100%;justify-content:space-between;box-sizing:border-box}}
 
+
+/* Featured engineering offers: primary business differentiators */
+.featured-offers{position:relative;overflow:hidden;padding:76px 0 82px;background:linear-gradient(135deg,#0b1425 0%,#14243b 58%,#0b2633 100%);color:#fff}
+.featured-offers:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% 8%,rgba(0,185,199,.2),transparent 34%),radial-gradient(circle at 5% 95%,rgba(66,99,235,.16),transparent 35%);pointer-events:none}
+.featured-offers .container{position:relative}
+.featured-offers .kicker{color:#70e5e6}
+.featured-offers-head{max-width:790px;margin-bottom:32px}
+.featured-offers-head h2{font-size:clamp(31px,4.3vw,48px);line-height:1.1;letter-spacing:-1.5px;margin:8px 0 13px}
+.featured-offers-head p{max-width:700px;color:#c5d0df;font-size:15px}
+.featured-offers-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.featured-offer{position:relative;display:flex;flex-direction:column;min-height:340px;padding:27px;border:1px solid rgba(132,220,224,.35);border-radius:18px;background:linear-gradient(155deg,rgba(255,255,255,.105),rgba(255,255,255,.035));box-shadow:0 18px 44px rgba(0,0,0,.2);transition:transform .2s,border-color .2s,background .2s}
+.featured-offer:hover{transform:translateY(-5px);border-color:#70e5e6;background:linear-gradient(155deg,rgba(0,185,199,.18),rgba(255,255,255,.05))}
+.featured-offer-mark{display:flex;align-items:center;justify-content:center;width:48px;height:48px;margin-bottom:21px;border-radius:14px;background:rgba(0,185,199,.16);color:#70e5e6;font-size:23px}
+.featured-offer-label{color:#70e5e6;font-size:9px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px}
+.featured-offer h3{font-size:22px;line-height:1.2;letter-spacing:-.6px;margin-bottom:12px}
+.featured-offer p{color:#c5d0df;font-size:13px;line-height:1.7;margin-bottom:18px}
+.featured-offer ul{list-style:none;color:#e0e8f1;font-size:11px;line-height:1.6;margin:0 0 22px}
+.featured-offer li{margin:7px 0}
+.featured-offer li:before{content:"✓";color:#70e5e6;font-weight:900;margin-right:8px}
+.featured-offer-link{display:inline-flex;align-items:center;gap:8px;margin-top:auto;color:#70e5e6;font-size:12px;font-weight:850}
+.featured-offer-link:hover{text-decoration:underline}
+.featured-offers-note{margin-top:22px;color:#aebdce;font-size:11px}
+@media(max-width:950px){.featured-offers-grid{grid-template-columns:1fr}.featured-offer{min-height:0}}
+@media(max-width:650px){.featured-offers{padding:60px 0}.featured-offer{padding:23px}.featured-offer h3{font-size:20px}}
+
 </style>
 </head>
 <body>
@@ -154,6 +179,43 @@ footer{padding:29px 0;border-top:1px solid var(--line)}.footer-row{display:flex;
    <div class="capability"><div class="cap-icon">⚒</div><div><strong>DevOps remediation</strong><small>Take debugging backlogs, deployment failures, and recurring technical issues off your team’s plate.</small></div></div>
    <div class="capability"><div class="cap-icon">☁</div><div><strong>Infrastructure reliability</strong><small>Cloud troubleshooting, systems performance, root-cause analysis, and IT consulting.</small></div></div>
   </aside>
+ </div>
+</section>
+
+<section class="featured-offers" id="featured-engineering" aria-labelledby="featured-engineering-title">
+ <div class="container">
+  <div class="featured-offers-head">
+   <div class="kicker">Featured Engineering Services</div>
+   <h2 id="featured-engineering-title">Specialized engineering. Built around your next challenge.</h2>
+   <p>Three focused ways Daemon IT helps organizations strengthen delivery, support advanced computing, and make smarter infrastructure investments.</p>
+  </div>
+  <div class="featured-offers-grid">
+   <article class="featured-offer">
+    <div class="featured-offer-mark">⌘</div>
+    <div class="featured-offer-label">Engineering team extension</div>
+    <h3>DevOps &amp; Platform Engineering</h3>
+    <p>Add experienced engineering capacity without immediately building a full-time team. We help tackle delivery bottlenecks, platform issues, and reliability work alongside your existing engineers.</p>
+    <ul><li>Kubernetes, OpenShift &amp; cloud platforms</li><li>CI/CD, GitOps &amp; infrastructure automation</li><li>Debugging, remediation &amp; reliability</li></ul>
+    <a class="featured-offer-link" href="#services">Explore DevOps services <span>↗</span></a>
+   </article>
+   <article class="featured-offer">
+    <div class="featured-offer-mark">▦</div>
+    <div class="featured-offer-label">Advanced computing support</div>
+    <h3>AI &amp; HPC Infrastructure Engineering</h3>
+    <p>Get focused technical support for the infrastructure and workloads behind AI, machine learning, and research computing environments.</p>
+    <ul><li>GPU, CUDA &amp; accelerated workloads</li><li>HPC, Linux &amp; Slurm environments</li><li>Compute, storage &amp; networking investigations</li></ul>
+    <a class="featured-offer-link" href="#universities">Explore AI &amp; HPC support <span>↗</span></a>
+   </article>
+   <article class="featured-offer">
+    <div class="featured-offer-mark">◈</div>
+    <div class="featured-offer-label">Infrastructure investment advisory</div>
+    <h3>Compute Acquisition &amp; Capacity Strategy</h3>
+    <p>Make a more informed AI infrastructure decision before committing capital or signing a capacity agreement. Evaluate the right path for your workloads, budget, and growth.</p>
+    <ul><li>Own vs. lease vs. reserve analysis</li><li>GPU, server, storage &amp; network requirements</li><li>Capacity planning, utilization &amp; cost comparison</li></ul>
+    <a class="featured-offer-link" href="mailto:barry.ellison@comcast.net?subject=Compute%20Acquisition%20and%20Capacity%20Strategy">Discuss compute strategy <span>↗</span></a>
+   </article>
+  </div>
+  <p class="featured-offers-note">Engagements are scoped to your requirements, approved access, available resources, and agreed deliverables.</p>
  </div>
 </section>
 <section class="services" id="services">
